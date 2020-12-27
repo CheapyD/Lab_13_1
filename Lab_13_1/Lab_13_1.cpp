@@ -12,9 +12,6 @@ using namespace nsDod;
 using namespace nsSum;
 using namespace nsVar;
 
-#define PRINTR(w) printf ("%f\t", (double)w)
-#define PRINTI(w) printf ("%d\n", w) 
-
 int main()
 {
 	cout << "x_p = "; cin >> x_p;
@@ -23,18 +20,29 @@ int main()
 	cout << "e = "; cin >> e;
 	cout << endl;
 
+	cout << fixed;
+	cout << "-----------------------------------------" << endl;
+	cout << "|" << setw(7) << "x" << " |"
+		<< setw(10) << "log(x)" << " |"
+		<< setw(9) << "s" << " |"
+		<< setw(6) << "n" << " |"
+		<< endl;
+	cout << "-----------------------------------------" << endl;
+
 	x = x_p;
 	while (x <= x_k)
 	{
 		sum();
 
-		PRINTR(x);
-		PRINTR(s);
-		PRINTR(log(x));
-		PRINTI(n);
-
+		cout << "|" << setw(7) << setprecision(2) << x << " |"
+			<< setw(10) << setprecision(5) << log(x) << " |"
+			<< setw(10) << setprecision(5) << s << " |"
+			<< setw(5) << n << " |"
+			<< endl;
+		
 		x += dx;
 	}
+	cout << "-----------------------------------------" << endl;
 
 	cin.get();
 	system("pause");
